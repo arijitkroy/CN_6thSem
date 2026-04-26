@@ -7,8 +7,6 @@
 #include <arpa/inet.h>
 #include <netinet/in.h>
 
-#define C_IP "127.0.0.1"
-#define C_PORT 15555
 #define S_IP "127.0.0.1"
 #define S_PORT 15550
 
@@ -16,10 +14,6 @@ int main() {
 	struct sockaddr_in client, server;
 	int s, clen = sizeof(client), slen = sizeof(server), n, i, arr[512];
 	char msg[512];
-	bzero((char *)&client, clen);
-	client.sin_family = AF_INET;
-	client.sin_addr.s_addr = inet_addr(C_IP);
-	client.sin_port = htons(C_PORT);
 	bzero((char *)&server, slen);
 	server.sin_family = AF_INET;
 	server.sin_addr.s_addr = inet_addr(S_IP);
