@@ -40,16 +40,6 @@ int main() {
 		n = recvfrom(s, arr, 512, 0, (struct sockaddr *)&client, &clen);
 		bubble(arr, n / sizeof(int));
 		sendto(s, arr, n, 0, (struct sockaddr *)&client, clen);
-		/*
-		memset(msg, 0x0, 512);
-		recvfrom(s, msg, 512, 0, (struct sockaddr *)&client, &clen);
-		if (strcmp(msg, "time") == 0) {
-			t1 = time(NULL);
-			t = ctime(&t1);
-			sendto(s, t, strlen(t)+1, 0, (struct sockaddr *)&client, clen);
-		}
-		else sendto(s, msg, strlen(msg)+1, 0, (struct sockaddr *)&client, clen);
-		*/
 	}
 	close(s);
 	return 0;
